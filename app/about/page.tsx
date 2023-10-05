@@ -20,7 +20,6 @@ export default async function About_Us() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ staggerChildren: 0.1 }}
             className='py-24'>
-            <Breadcrumb pageTitle='Over Ons' className='container mb-6 ml-2'/>   
             <div className='relative'>
             <Image src="/assets/images/about-bg.png" alt='about-bg.png' width={498} height={506} loading="lazy" className='absolute inset-y-0 right-0 z-[-2] object-cover h-full md:block hidden' />
             <div className='container mx-auto px-4 grid md:grid-cols-2 grid-cols-1 gap-5 items-center justify-between'>
@@ -28,6 +27,7 @@ export default async function About_Us() {
                 div
                 variants={fadeUp}>
                 <div className=''>
+                    <Breadcrumb pageTitle='Over Ons'/>   
                     <Typography variant = 'muted' className="text-dark text-2xl md:text-left text-center font-medium max-w-[522px] mb-5">
                     Ons Verhaal
                     </Typography>
@@ -118,17 +118,17 @@ export default async function About_Us() {
                     <ul className='flex gap-7 justify-center items-center'>
                     <li>
                         <Link href="#" className='block w-fit'>
-                        <Image loading="lazy" src="/assets/images/team/fb.png" alt='team/fb.png' width={18} height={18} />
+                            <Image loading="lazy" src="/assets/images/team/fb.png" alt='team/fb.png' width={18} height={18} />
                         </Link>
                     </li>
                     <li>
                         <Link href="#" className='block w-fit'>
-                        <Image loading="lazy" src="/assets/images/team/email.png" alt='team/email.png' width={18} height={18} />
+                            <Image loading="lazy" src="/assets/images/team/email.png" alt='team/email.png' width={18} height={18} />
                         </Link>
                     </li>
                     <li>
                         <Link href="#" className='block w-fit'>
-                        <Image loading="lazy" src="/assets/images/team/twiter.png" alt='team/twiter.png' width={18} height={18} />
+                            <Image loading="lazy" src="/assets/images/team/twiter.png" alt='team/twiter.png' width={18} height={18} />
                         </Link>
                     </li>
                     </ul>
