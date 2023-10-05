@@ -8,6 +8,7 @@ import { QFaqs } from '@/sanity/lib/queries'
 import { client } from '@/sanity/lib/client'
 import MotionWrapper from '@/components/motion-wrapper'
 import { fontRobotoSlab } from '@/lib/fonts'
+import Breadcrumb from '@/components/breadcrumb'
 
 export default async function Contact_Us() {
     const faqs = await client.fetch(QFaqs)
@@ -22,6 +23,7 @@ export default async function Contact_Us() {
                 transition={{ staggerChildren: 0.1 }}
                 className='py-20' id="contact_form">
                 <div className='container mx-auto px-4'>
+                    <Breadcrumb pageTitle='contact' className='mb-12' />   
                     <MotionWrapper
                         div
                         variants={fadeUp}

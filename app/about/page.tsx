@@ -7,6 +7,7 @@ import { QStaff } from '@/sanity/lib/queries'
 import { client } from '@/sanity/lib/client'
 import MotionWrapper from '@/components/motion-wrapper'
 import { Typography } from '@/components/ui/typography'
+import Breadcrumb from '@/components/breadcrumb'
 
 export default async function About_Us() {
     const staff = await client.fetch(QStaff)
@@ -19,6 +20,7 @@ export default async function About_Us() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ staggerChildren: 0.1 }}
             className='py-24'>
+            <Breadcrumb pageTitle='Over Ons' className='container mb-6 ml-2'/>   
             <div className='relative'>
             <Image src="/assets/images/about-bg.png" alt='about-bg.png' width={498} height={506} loading="lazy" className='absolute inset-y-0 right-0 z-[-2] object-cover h-full md:block hidden' />
             <div className='container mx-auto px-4 grid md:grid-cols-2 grid-cols-1 gap-5 items-center justify-between'>

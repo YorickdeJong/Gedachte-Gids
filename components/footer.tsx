@@ -76,22 +76,17 @@ export default function Footer({ className, ...props }: FooterProps) {
               </Link>
             </li>
             <li className='md:text-left text-center'>
-              <Link href="/services" className='text-sky-900 text-base font-normal'>
-                Diensten
-              </Link>
-            </li>
-            <li className='md:text-left text-center'>
-              <Link href="/blogs" className='text-sky-900 text-base font-normal'>
-                Hulpmiddelen
-              </Link>
-            </li>
-            <li className='md:text-left text-center'>
-              <Link href="/about-us" className='text-sky-900 text-base font-normal'>
+              <Link href="/about" className='text-sky-900 text-base font-normal'>
                 Over Ons
               </Link>
             </li>
             <li className='md:text-left text-center'>
-              <Link href="/contact-us" className='text-sky-900 text-base font-normal'>
+              <Link href="/blog" className='text-sky-900 text-base font-normal'>
+                Blogs
+              </Link>
+            </li>
+            <li className='md:text-left text-center'>
+              <Link href="/contact" className='text-sky-900 text-base font-normal'>
                 Contact
               </Link>
             </li>

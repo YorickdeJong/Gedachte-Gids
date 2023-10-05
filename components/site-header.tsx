@@ -34,8 +34,8 @@ export default function Navbar() {
 
   return (
     <section
-      className={cn('', {
-        'absolute bg-transparent top-0 inset-x-0 z-40 border-b-[1px] border-[#F1F1F1]': (path === '/' || path?.startsWith('/technologie/')),
+      className={cn('bg-transparent top-0 inset-x-0 z-40 border-b-[1px] border-[#F1F1F1]', {
+
       })}
     >
       <nav className="container  flex items-center justify-between px-5 py-2">

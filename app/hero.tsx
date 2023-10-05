@@ -23,9 +23,9 @@ export default function Hero({ className, ...props }: HeroProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const transition = {
-    delay: 0.25,
-    duration: 0.5,
-    ease: [0.43, 0.13, 0.23, 0.96]  // This is an example cubic bezier curve for smooth easing
+    delay: 0,
+    duration: 0.75,
+    ease: [0.43, 0.13, 0.7, 0.99]  // This is an example cubic bezier curve for smooth easing
   };
 
   
@@ -113,7 +113,7 @@ export default function Hero({ className, ...props }: HeroProps) {
       
 
 
-      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-10 mt-60 pb-20 mb-12">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-10 mt-40 pb-20 mb-12">
 
         <div className='absolute top-[-60px] md:top-[50px] left-[0px] flex flex-row justify-between gap-10'>
             <div onClick = {()=> setCurrentIndex(0)} className='h-3 rounded-full bg-[#E4E4E4] hover:scale-110 hover:cursor-pointer' 
@@ -147,16 +147,21 @@ export default function Hero({ className, ...props }: HeroProps) {
             {subTitles[currentIndex]}
           </Typography>
          
-            <Link href={'/booking'} className='mt-8'>
+            <Link href={'/contact'} className='mt-8'>
               <Button className="md:text-lg text-white md:text-white rounded-full py-2">
                 Boek een afspraak  &rarr;
               </Button>
             </Link>
         </Motion>
-        <div className="relative flex flex-col items-center justify-center hover:opacity-80">
-          <Images.hero_bg_2 className="absolute top-20 right-0 w-full h-full hero-bg-animate" />
-          <Images.hero_bg_1 className="absolute bottom-10 left-0 w-full h-full hero-bg-animate" />
-          <Images.hero_1_min className="relative md:h-[500px] md:w-[580px] h-[400px] w-[500px] z-[3] hero-1-min-animate" />
+        <div className="relative group flex flex-col items-center justify-center hover:opacity-80">
+          <Link href = '/contact'>
+            <Images.hero_bg_2 className="absolute top-20 right-0 w-full h-full hero-bg-animate" />
+            <Images.hero_bg_1 className="absolute bottom-10 left-0 w-full h-full hero-bg-animate" />
+            <Images.hero_1_min className="relative md:h-[500px] md:w-[580px] h-[400px] w-[500px] z-[3] hero-1-min-animate" />
+            <div className='absolute group-hover:inline-flex hidden top-[-40px] left-[40%]'>
+                <Typography variant = 'muted' className='text-primary font-bold'>Begin Jouw Reis</Typography>
+            </div>
+          </Link>
         </div>
       </div>
     </motion.section>

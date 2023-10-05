@@ -14,7 +14,7 @@ const typographyVariants = cva('', {
     },
     variant: {
       default: '',
-      heading: `text-3xl md:text-4xl ${fontRobotoSlab.className}`, // text-3xl for mobile, text-4xl for medium screens, text-7xl for large screens
+      heading: `text-tertairy text-3xl md:text-4xl ${fontRobotoSlab.className}`, // text-3xl for mobile, text-4xl for medium screens, text-7xl for large screens
       title:
         `text-4xl md:text-3xl lg:text-[30px] font-bold text-tertairy leading-[48px] lg:leading-[48px] ${fontRobotoSlab.className}`, // text-4xl for mobile, text-5xl for medium screens
       muted: 'text-base md:text-lg text-muted leading-relaxed md:leading-9', // text-base for mobile, text-lg for medium screens

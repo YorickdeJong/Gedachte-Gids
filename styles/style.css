@@ -104,3 +104,48 @@
 .mission-bg-4-animate {
   animation: moveUpDown 3s infinite; /* 5s is the duration, adjust as needed */
 }
+
+.custom-heading-2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 2.1rem;
+  letter-spacing: 0.025em;
+  font-weight: bold;
+  color: #121212;
+  margin-bottom: 15px;
+  margin-top: 50px;
+}
+
+
+.custom-heading-3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 2rem;
+  letter-spacing: 0.025em;
+  font-weight: bold;
+  color: #121212;
+  margin-bottom: 15px;
+  margin-top: 50px;
+}
+
+.custom-heading-4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 2rem;
+  letter-spacing: 0.025em;
+  font-weight: bold;
+  color: #121212;
+  margin-bottom: 15px;
+  margin-top: 50px;
+}
+
+.custom-heading-5 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.75rem;
+  letter-spacing: 0.025em;
+  font-weight: 600;
+  color: #121212;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
