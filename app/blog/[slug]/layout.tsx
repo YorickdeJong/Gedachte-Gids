@@ -1,5 +1,4 @@
 
-import Suggestions from "./suggestions";
 import React from "react";
 import BlogSlug from "./page";
 import { QSingleBlogs } from "@/sanity/lib/queries";
