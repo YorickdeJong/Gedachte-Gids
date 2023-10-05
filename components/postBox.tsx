@@ -30,7 +30,7 @@ function PostBox({ data }: any) {
                 <div className='post_meta flex flex-wrap gap-2 justify-between md:px-[30px] px-6'>
                     <div className='author_box flex justify-between items-center'>
                         <div className='flex gap-3 items-center'>
-                            <Image src="/images/blog/author.png" alt='blog/author.png' width={33} height={34} />
+                            <Image src="/assets/images/author.png" alt='blog/author.png' width={33} height={34} />
                             <span>
                                 <Link href={`/blog/${data?.slug?.current}`}className="text-neutral-900 text-sm font-normal leading-loose">
                                     Joanna Wellick
