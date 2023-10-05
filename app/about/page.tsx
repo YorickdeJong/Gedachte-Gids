@@ -118,17 +118,17 @@ export default async function About_Us() {
                     <ul className='flex gap-7 justify-center items-center'>
                     <li>
                         <Link href="#" className='block w-fit'>
-                            <Image loading="lazy" src="/assets/images/team/fb.png" alt='team/fb.png' width={18} height={18} />
+                            <Image loading="lazy" src="/assets/images/Team/fb.png" alt='team/fb.png' width={18} height={18} />
                         </Link>
                     </li>
                     <li>
                         <Link href="#" className='block w-fit'>
-                            <Image loading="lazy" src="/assets/images/team/email.png" alt='team/email.png' width={18} height={18} />
+                            <Image loading="lazy" src="/assets/images/Team/email.png" alt='team/email.png' width={18} height={18} />
                         </Link>
                     </li>
                     <li>
                         <Link href="#" className='block w-fit'>
-                            <Image loading="lazy" src="/assets/images/team/twiter.png" alt='team/twiter.png' width={18} height={18} />
+                            <Image loading="lazy" src="/assets/images/Team/twiter.png" alt='team/twiter.png' width={18} height={18} />
                         </Link>
                     </li>
                     </ul>
