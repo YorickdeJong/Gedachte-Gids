@@ -29,8 +29,8 @@ export default function WorkTogether() {
                         </Typography>
                         
                         <div className=' md:text-left text-center mt-8'>
-                            <Link href="/contact-us#contact_form" 
-                            className="hover:bg-blue-900 justify-center text-center hover:text-white text-sky-900 font-semibold uppercase tracking-wide px-6 py-3 bg-white rounded-[36.46px]">
+                            <Link href="/contact" 
+                            className="hover:bg-primary justify-center text-center hover:text-white text-sky-900 font-semibold uppercase tracking-wide px-6 py-3 bg-white rounded-[36.46px]">
                                 Plan Nu een Afspraak
                             </Link>
                         </div>
