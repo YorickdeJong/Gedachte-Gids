@@ -45,15 +45,23 @@ type Params = {
 
 export default async function BlogSlug({params: {slug}}: Params) {
     console.log('slug', slug)
-    const blogState = await client.fetch(QSingleBlogs, {slug});
+    const blogState = await client.fetch(QSingleBlogs, {slug}, { cache: 'no-store' });
 
     console.log('BlogState', blogState)
+    console.log('slug', slug)
+    
+    const StrongRenderer = (props: any) => {
+        return <strong style={{ color: '#5097ab' }}>{props.children}</strong>; // Change 'red' to your desired color
+    };
 
     // const blogState = blog[0]
     const serializers = {
         types: {
             block: BlockRenderer,
             image: Blockimage,
+        },
+        marks: {
+            strong: StrongRenderer,
         },
         list: (props : any) => {
             const { type } = props;

@@ -16,8 +16,7 @@ import WorkTogether from './Contact';
 // IN /app/about-us you define your page.tsx, this is the file that will display all components
 
 export default async function IndexPage() {
-  const blogs = await client.fetch(QBlogs)
-  const testimonial = await client.fetch(QTestimonial)
+  const blogs = await client.fetch(QBlogs, { cache: 'no-store' })
 
   return (
     <section className="">
