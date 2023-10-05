@@ -1,4 +1,4 @@
-import { Fira_Mono as FontMono, Poppins as FontSans } from 'next/font/google';
+import { Fira_Mono as FontMono, Poppins as FontSans, Roboto_Slab, Roboto, Inter } from 'next/font/google';
 
 export const fontSans = FontSans({
   subsets: ['latin'],
@@ -9,5 +9,24 @@ export const fontSans = FontSans({
 export const fontMono = FontMono({
   subsets: ['latin'],
   variable: '--font-mono',
+  weight: ['400', '500', '700'],
+});
+
+export const fontRoboto = Roboto({
+  subsets: ['latin'],
+  variable: '--font-roboto',
+  weight: ['400', '500', '700'],
+});
+
+export const fontRobotoSlab = Roboto_Slab({
+  subsets: ['latin'],
+  variable: '--font-roboto-slab',
+  weight: ['400', '500', '700'],
+});
+
+
+export const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
   weight: ['400', '500', '700'],
 });

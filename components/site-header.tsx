@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
@@ -10,45 +10,60 @@ import { cn } from '@/lib/utils';
 import Brand from './brand';
 import { Icons } from './icons';
 import { Button } from './ui/button';
+import MotionWrapper from './motion-wrapper';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const path = usePathname();
   const { push } = useRouter();
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+      const handleClickOutside = (event: any) => {
+          if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setIsMenuOpen(false);
+          }
+      };
+
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+      };
+  }, [dropdownRef]);
+
 
   return (
     <section
       className={cn('', {
-        'absolute bg-transparent top-0 inset-x-0 z-40': (path === '/' || path?.startsWith('/technologie/')),
+        'absolute bg-transparent top-0 inset-x-0 z-40 border-b-[1px] border-[#F1F1F1]': (path === '/' || path?.startsWith('/technologie/')),
       })}
     >
-      <nav className="container  flex items-center justify-between px-5 py-9">
+      <nav className="container  flex items-center justify-between px-5 py-2">
         <Brand />
         <NavContent />
         {!isMenuOpen ? (
           <Icons.menu
             onClick={() => setIsMenuOpen(true)}
             size={36}
-            className="cursor-pointer text-foreground lg:hidden"
+            className="cursor-pointer lg:hidden text-primary"
           />
         ) : (
           <Icons.x
             onClick={() => setIsMenuOpen(false)}
             size={36}
-            className="cursor-pointer text-foreground lg:hidden"
+            className="cursor-pointer lg:hidden text-primary z-[11]"
           />
         )}{' '}
         <Button
-          onClick={() => push('/booking')}
-          variant={'outline'}
-          className="max-lg:hidden"
+          onClick={() => push('/contact')}
+          className="max-lg:hidden rounded-full py-2 text-sm md:text-md"
         >
           <Icons.phone className="pr-2" />
-          Your call to action
+           Vrijblijvende Afspraak
         </Button>
       </nav>
 
-      {isMenuOpen && <NavContentMob setIsMenuOpen={setIsMenuOpen} />}
+      {isMenuOpen && <NavContentMob menuRef={dropdownRef} currentPath={path || ''} setIsMenuOpen={setIsMenuOpen} />}
     </section>
   );
 }
@@ -57,7 +72,7 @@ const NavContent = () => {
   const path = usePathname();
   return (
     <>
-      <ul className="ml-16 flex items-center gap-12 max-lg:hidden ">
+      <ul className="ml-16 flex items-center gap-12 max-lg:hidden">
         {siteConfig.nav.map((_) => (
           <li
             key={_.title}
@@ -65,7 +80,7 @@ const NavContent = () => {
               '': _.href === '/' ? path === '/' : path?.includes(_.href),
             })}
           >
-            <h3 className="capitalize text-lg">
+            <h3 className="capitalize text-md text-[#121212]">
               <Link href={_.href}>{_.title}</Link>
             </h3>
           </li>
@@ -75,18 +90,30 @@ const NavContent = () => {
   );
 };
 
-const NavContentMob = ({ setIsMenuOpen }: { setIsMenuOpen: Function }) => {
+const NavContentMob = ({ setIsMenuOpen, currentPath, menuRef }: { setIsMenuOpen: Function, currentPath: string, menuRef: any }) => {
   return (
-    <>
-      <ul className="absolute inset-x-0 mx-2 flex flex-col items-start gap-4 rounded-xl bg-card p-5 shadow-xl lg:hidden">
-        {siteConfig.nav.map((_) => (
-          <li onClick={() => setIsMenuOpen(false)} key={_.title}>
-            <h3 className="capitalize hover:text-primary/50">
-              <Link href={_.href}>{_.title}</Link>
-            </h3>
-          </li>
+    <MotionWrapper
+      ref={menuRef}
+      div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 50 }}
+      className="z-[10] absolute top-0 inset-x-0 flex flex-col items-start gap-4 bg-white p-5 shadow-xl lg:hidden"
+    >
+      <ul>
+        <Brand/>
+        <div className='mt-4'>
+          {siteConfig.nav.map((_) => (
+            <li onClick={() => setIsMenuOpen(false)} key={_.title}>
+              <h3 className={`capitalize  py-4 ${
+                currentPath === _.href ? 'text-primary/50' : 'text-dark'
+              }`}>
+                <Link onClick={() => setIsMenuOpen(false)} href={_.href} className='hover:text-primary/50'>{_.title}</Link>
+              </h3>
+            </li>
         ))}
+        </div>
       </ul>
-    </>
+    </MotionWrapper>
   );
 };

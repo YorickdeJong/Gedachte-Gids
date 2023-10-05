@@ -2,7 +2,7 @@ const { fontFamily } = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ['class'],
+  lightMode: ['class'],
   content: ['app/**/*.{ts,tsx}', 'components/**/*.{ts,tsx}'],
   theme: {
     container: {
@@ -20,12 +20,24 @@ module.exports = {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: '#72C4F4',
+          foreground: '#72C4F4',
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
+          DEFAULT: '#E3F1FF',
+          foreground: '#E3F1FF',
+        },
+        tertairy: {
+          DEFAULT: '#5097ab',
+          foreground: '#5097ab',
+        },
+        quadrary: {
+          DEFAULT: '#bbf0ff',
+          foreground: '#bbf0ff',
+        },
+        dark: {
+          DEFAULT: '#121212',
+          foreground: '#121212',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',

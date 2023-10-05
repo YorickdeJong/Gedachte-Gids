@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import {
   AlignRight,
+  CheckCircle,
   Brain,
   Facebook,
   Linkedin,
@@ -21,6 +22,7 @@ export const Icons = {
   facebook: Facebook,
   twitter: Twitter,
   linkedin: Linkedin,
+  checkmark: CheckCircle,
   logo: () => (
     <Image
       src={'/assets/images/logo-waterfall.png'}

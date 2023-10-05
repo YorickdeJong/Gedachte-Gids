@@ -48,3 +48,59 @@
     width: 100% !important;
   }
 }
+
+@keyframes expandContract {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* Adjust this value to control the amount of expansion */
+  }
+}
+
+@keyframes expandContractDiensten {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03); /* Adjust this value to control the amount of expansion */
+  }
+}
+
+
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(-20px); /* Adjust this value to control the amount of upward movement */
+  }
+}
+
+.hero-bg-animate {
+  animation: expandContract 5s infinite; /* 5s is the duration, adjust as needed */
+}
+
+.hero-1-min-animate {
+  animation: moveUpDown 3.5s infinite; /* 3s is the duration, adjust as needed */
+}
+
+.diensten-animate {
+  animation: expandContractDiensten 5s infinite; /* 5s is the duration, adjust as needed */
+}
+
+.mission-bg-1-animate {
+  animation: expandContract 5s infinite; /* 5s is the duration, adjust as needed */
+}
+
+.mission-bg-2-animate {
+  animation: expandContract 4s infinite; /* 5s is the duration, adjust as needed */
+}
+
+.mission-bg-3-animate {
+  animation: moveUpDown 5s infinite; /* 5s is the duration, adjust as needed */
+}
+
+.mission-bg-4-animate {
+  animation: moveUpDown 3s infinite; /* 5s is the duration, adjust as needed */
+}
