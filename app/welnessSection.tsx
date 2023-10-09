@@ -5,7 +5,7 @@ import { Icons } from "@/components/icons";
 import { Images } from "@/components/images";
 import MotionWrapper from "@/components/motion-wrapper";
 import { Typography } from "@/components/ui/typography";
-import { useScroll, useTransform } from "framer-motion";
+import { useScroll, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 
@@ -19,9 +19,12 @@ export default function WellnessSection() {
         offset: ['start end', 'end start']
     });
     
+    const smoothScrollYProgress = useSpring(scrollYProgress, { stiffness: 85, damping: 30 });
+
+
 
     useEffect(() => {
-        const unsubscribe = scrollYProgress.on('change', value => {
+        const unsubscribe = smoothScrollYProgress.on('change', value => {
             if (value < 0.5) {
                 setSvgHeight(value)
                 setColorValue(value)
@@ -45,6 +48,7 @@ export default function WellnessSection() {
     };
 
     const color = interpolateColor(svgheight);
+    
     return (
         <MotionWrapper 
         initial={"offscreen"}
