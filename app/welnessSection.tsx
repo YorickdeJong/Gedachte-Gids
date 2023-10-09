@@ -1,23 +1,66 @@
+'use client'
+
 import { fadeUp } from "@/components/const/anim";
 import { Icons } from "@/components/icons";
 import { Images } from "@/components/images";
 import MotionWrapper from "@/components/motion-wrapper";
 import { Typography } from "@/components/ui/typography";
-
-
-
+import { useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 
 export default function WellnessSection() {
+    const containerRef = useRef(null);
+    const [svgheight, setSvgHeight] = useState(0);
+    const [colorValue, setColorValue] = useState(0);
+
+    const { scrollYProgress,  } = useScroll({
+        target: containerRef,
+        offset: ['start end', 'end start']
+    });
+    
+
+    useEffect(() => {
+        const unsubscribe = scrollYProgress.on('change', value => {
+            if (value < 0.5) {
+                setSvgHeight(value)
+                setColorValue(value)
+            }
+            else {
+                setSvgHeight(1 - value)
+                setColorValue(value)
+            }
+        });
+    
+        return () => {
+            unsubscribe();
+        };
+    }, [scrollYProgress]);
+
+    const interpolateColor = (value : any) => {
+        const r = Math.floor(227 -  value * 80);
+        const g = Math.floor(241 - value * 34);
+        const b = Math.floor(255 );
+        return `rgb(${r},${g},${b})`;
+    };
+
+    const color = interpolateColor(svgheight);
     return (
         <MotionWrapper 
         initial={"offscreen"}
         whileInView={"onscreen"}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ staggerChildren: 0.1 }}
+        style = {{translateY: svgheight * 300 }}
         className="my-12 mt-24">
-            <CurveSVG />
-            <div className="bg-secondary">
+            <CurveSVG 
+            height={svgheight}
+            fillColor={color}
+            />
+            <div className="bg-secondary"
+            ref={containerRef}
+            style={{ backgroundColor: color }}
+            >
                 <div className="container grid grid-cols-1 md:grid-cols-2 gap-20 py-24">
                     <MotionWrapper key={1} div variants={fadeUp} className="mt-12">
                         <Images.diensten_hero className = 'diensten-animate'/>
@@ -54,19 +97,23 @@ export default function WellnessSection() {
                     </div>
                 </div>
         </div>
-        <InverseCurveSVG />
+        <InverseCurveSVG 
+        fillColor={color}
+        />
         </MotionWrapper>    
     )
 }
 
-const CurveSVG = () => (
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" className="w-full h-20">
-      <path d="M0,100 C720,0 720,0 1440,100 L1440,100 L0,100" fill="#E3F1FF"></path>
+const CurveSVG = ({ height, fillColor }: { height: any, fillColor: string }) => (
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" className="w-full mb-[-1px]"
+    style={{ height: 80 + height * 1000 }}
+    > 
+      <path d="M0,100 C720,0 720,0 1440,100 L1440,100 L0,100" fill={fillColor}></path>
     </svg>
 );
 
-const InverseCurveSVG = () => (
-<svg viewBox="0 0 1440 100" preserveAspectRatio="none" className="w-full h-20">
-    <path d="M0,0 C720,100 720,100 1440,0 L1440,0 L0,0" fill="#E3F1FF"></path>
+const InverseCurveSVG = ({fillColor } : any) => (
+<svg viewBox="0 0 1440 100" preserveAspectRatio="none" className="w-full h-20 mt-[-1px]">
+    <path d="M0,0 C720,100 720,100 1440,0 L1440,0 L0,0" fill={fillColor}></path>
 </svg>
 );
