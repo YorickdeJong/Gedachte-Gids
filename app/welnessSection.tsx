@@ -61,7 +61,7 @@ export default function WellnessSection() {
             height={svgheight}
             fillColor={color}
             />
-            <div className="bg-secondary"
+            <div 
             ref={containerRef}
             style={{ backgroundColor: color,  }}
             >
