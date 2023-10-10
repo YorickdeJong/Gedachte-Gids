@@ -55,7 +55,7 @@ export default function WellnessSection() {
         whileInView={"onscreen"}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ staggerChildren: 0.1 }}
-        style = {{translateY: svgheight * 300 }}
+        style = {{translateY: svgheight * 200 }}
         className="my-12 mt-24">
             <CurveSVG 
             height={svgheight}
@@ -63,9 +63,9 @@ export default function WellnessSection() {
             />
             <div className="bg-secondary"
             ref={containerRef}
-            style={{ backgroundColor: color }}
+            style={{ backgroundColor: color,  }}
             >
-                <div className="container grid grid-cols-1 md:grid-cols-2 gap-20 py-24">
+                <MotionWrapper style= {{translateY: -svgheight * 200}} className="container grid grid-cols-1 md:grid-cols-2 gap-20 py-24">
                     <MotionWrapper key={1} div variants={fadeUp} className="mt-12">
                         <Images.diensten_hero className = 'diensten-animate'/>
                     </MotionWrapper>
@@ -99,7 +99,7 @@ export default function WellnessSection() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </MotionWrapper>
         </div>
         <InverseCurveSVG 
         fillColor={color}
