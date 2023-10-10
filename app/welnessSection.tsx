@@ -19,7 +19,7 @@ export default function WellnessSection() {
         offset: ['start end', 'end start']
     });
     
-    const smoothScrollYProgress = useSpring(scrollYProgress, { stiffness: 85, damping: 20 });
+    const smoothScrollYProgress = useSpring(scrollYProgress, { stiffness: 200, damping: 35 });
 
 
 
@@ -65,7 +65,7 @@ export default function WellnessSection() {
             ref={containerRef}
             style={{ backgroundColor: color,  }}
             >
-                <MotionWrapper style= {{translateY: -svgheight * 150}} className="container grid grid-cols-1 md:grid-cols-2 gap-20 py-24">
+                <MotionWrapper style= {{translateY: -svgheight * 200}} className="container grid grid-cols-1 md:grid-cols-2 gap-20 py-24">
                     <MotionWrapper key={1} div variants={fadeUp} className="mt-12">
                         <Images.diensten_hero className = 'diensten-animate'/>
                     </MotionWrapper>
